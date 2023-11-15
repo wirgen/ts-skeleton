@@ -24,6 +24,9 @@
   "engines": {
     "node": ">=18 <19"
   },
+  "dependencies": {
+    "module-alias": "^2.2.3"
+  },
   "devDependencies": {
     "@tsconfig/node18": "^1.0.3",
     "@types/node": "18",
@@ -42,5 +45,8 @@
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
     "typescript": "*"
+  },
+  "_moduleAliases": {
+    "@src": "build"
   }
 }
