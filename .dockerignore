@@ -20,7 +20,7 @@ node_modules/
 .env.test
 
 # TypeScript build directory
-build/
+dist/
 
 # Additional
 .dockerignore
