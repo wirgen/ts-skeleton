@@ -28,7 +28,6 @@
   "dependencies": {},
   "devDependencies": {
     "@eslint/js": "^9.3.0",
-    "@stylistic/eslint-plugin": "^2.1.0",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "20",
     "@typescript-eslint/parser": "^7.10.0",

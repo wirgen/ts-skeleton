@@ -1,13 +1,21 @@
 // noinspection SpellCheckingInspection
 
 import eslint from '@eslint/js'
-import eslintParser from '@typescript-eslint/parser'
-import stylistic from '@stylistic/eslint-plugin'
 import tseslint from 'typescript-eslint'
 
+// noinspection JSUnusedGlobalSymbols
 export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.strictTypeChecked,
+  ...tseslint.configs.stylisticTypeChecked,
+  {
+    languageOptions: {
+      parserOptions: {
+        project: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
   {
     files: [
       'src/**/*.ts',
@@ -16,20 +24,5 @@ export default tseslint.config(
       'node_modules/*',
       'dist/*',
     ],
-    languageOptions: {
-      ecmaVersion: 2022,
-      sourceType: 'module',
-      parser: eslintParser,
-      parserOptions: {
-        project: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
-    plugins: {
-      '@stylistic': stylistic,
-    },
-    rules: {
-      '@stylistic/indent': ['error', 2],
-    },
   },
 )
