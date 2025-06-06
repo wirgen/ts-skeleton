@@ -3,26 +3,29 @@
 import eslint from '@eslint/js'
 import tseslint from 'typescript-eslint'
 
-// noinspection JSUnusedGlobalSymbols
 export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
   {
-    languageOptions: {
-      parserOptions: {
-        project: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
+    ignores: [
+      'eslint.config.js',
+      'node_modules/*',
+      'dist/*',
+    ],
   },
   {
     files: [
       'src/**/*.ts',
     ],
-    ignores: [
-      'node_modules/*',
-      'dist/*',
-    ],
+  },
+  {
+    languageOptions: {
+      parserOptions: {
+        project: './tsconfig.json',
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
   },
 )
